@@ -6,16 +6,6 @@
 union jsonTypePtr;
 struct jsonEntry;
 
-enum jsonType {
-    JSONNUM,
-    JSON,
-    JSONARRAY,
-    JSONBOOL,
-    JSONNULL,
-    JSONSTRING,
-    INVALIDTYPE,
-};
-
 struct invalidType;
 
 struct jsonString;
@@ -40,5 +30,17 @@ class json {
         
         std::string text();
     private:
+        int insert(std::string, jsonEntry);
+
         std::map<std::string, jsonEntry> jsonObj;
+};
+
+enum jsonType {
+    JSONNUM = 0,
+    JSON = 1,
+    JSONARRAY = 2,
+    JSONBOOL = 3,
+    JSONNULL = 4,
+    JSONSTRING = 5,
+    INVALIDTYPE = 6,
 };
